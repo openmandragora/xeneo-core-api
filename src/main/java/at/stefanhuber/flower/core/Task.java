@@ -4,6 +4,7 @@
  */
 package at.stefanhuber.flower.core;
 
+import at.stefanhuber.flower.core.security.User;
 import at.stefanhuber.flower.core.Activity;
 import java.util.List;
 
