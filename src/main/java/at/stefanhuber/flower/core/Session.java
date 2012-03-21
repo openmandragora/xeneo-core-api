@@ -15,11 +15,11 @@ import java.util.Map;
 public interface Session {
     
     public Case getCaseByURI(String URI);
-    
+   
     public Case createCase(String caseTypeURI, String title);
     
     public Case createCase(String caseTypeURI, String title, String description);
-    
+   
     public Task createTask(String title);
     
     public Task createTask(String title, String description);
