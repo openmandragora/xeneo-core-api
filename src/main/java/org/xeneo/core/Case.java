@@ -1,6 +1,6 @@
-package at.stefanhuber.flower.core;
+package org.xeneo.core;
 
-import at.stefanhuber.flower.core.security.User;
+import org.xeneo.core.security.User;
 import java.util.Date;
 import java.util.List;
 

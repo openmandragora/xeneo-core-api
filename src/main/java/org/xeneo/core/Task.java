@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package at.stefanhuber.flower.core;
+package org.xeneo.core;
 
-import at.stefanhuber.flower.core.security.User;
-import at.stefanhuber.flower.core.Activity;
+import org.xeneo.core.security.User;
+import org.xeneo.core.Activity;
 import java.util.List;
 
 /**
