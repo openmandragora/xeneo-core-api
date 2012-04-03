@@ -13,7 +13,7 @@ import java.util.Map;
  * This interface represents an Activity.
  * 
  * An Activity is something a specific User has done, within the context of tasks and also cases. The activity has one date.
- * Test
+ * Test1
  * @author Stefan Huber
  */
 public interface Activity {
