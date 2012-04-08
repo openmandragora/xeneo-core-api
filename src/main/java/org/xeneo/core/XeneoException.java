@@ -2,14 +2,16 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.xeneo.core.plugins;
+package org.xeneo.core;
 
 /**
  *
  * @author Stefan Huber
  */
-public interface ActivityPlugin extends Runnable {
+public class XeneoException extends Exception {
     
-    
+    public XeneoException(String message) {
+        super(message);
+    }
     
 }
