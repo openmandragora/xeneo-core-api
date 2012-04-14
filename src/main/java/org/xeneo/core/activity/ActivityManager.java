@@ -8,6 +8,8 @@ public interface ActivityManager {
 	public void addActivity(Activity activity);
 	public void addActivity(Activity activity, String caseURI, Collection<String> taskURIs);
 	public void addActivity(Activity activity, Map<String,Collection<String>> caseTaskURIs);
+        
+        public boolean isExistingActivity(String activityURI);
 	
     /*
      * Add a task context to the Activity for a specific case.

@@ -10,7 +10,12 @@ package org.xeneo.core;
  */
 public class XeneoException extends Exception {
     
-    public XeneoException(String message) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -2221243758964718013L;
+
+	public XeneoException(String message) {
         super(message);
     }
     

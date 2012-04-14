@@ -34,7 +34,7 @@ public class Activity {
 	private Object target;
 	
 	private String summary;
-	private String content;
+	private String description;
 	public String getActivityURI() {
 		return activityURI;
 	}
@@ -77,11 +77,11 @@ public class Activity {
 	public void setSummary(String summary) {
 		this.summary = summary;
 	}
-	public String getContent() {
-		return content;
+	public String getDescription() {
+		return description;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setDescription(String desc) {
+		this.description = desc;
 	}
 	
 	/*
