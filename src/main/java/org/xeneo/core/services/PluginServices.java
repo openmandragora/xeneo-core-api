@@ -5,6 +5,7 @@
 package org.xeneo.core.services;
 
 import java.util.Properties;
+import org.xeneo.core.plugin.PluginConfiguration;
 
 /**
  *
@@ -12,15 +13,11 @@ import java.util.Properties;
  */
 public interface PluginServices {
     
-    // public TODO: get available Plugins
-    public void addPlugin(String pluginURI,String title,String description, String pluginClass);
+    /*
+    public void createPluginInstance(PluginConfiguration configuration);
     
-    public void updatePlugin(String pluginURI,String title,String description, String pluginClass);
+    public void startActivityPluginInstance(int i);
     
-    public void configurePluginInstance(int id, Properties properties);
-    
-    public void addPluginInstance(String pluginURI, Properties properties);
-    
-    public void removePluginInstance(int id);
-    
+    public void stopActivityPluginInstance(int i);
+    */
 }

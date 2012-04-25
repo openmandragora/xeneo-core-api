@@ -16,17 +16,8 @@ public interface UserServices {
     
     public String getCurrentUserURI();
     
-    public String getCurrentUsername();    
+    public String getCurrentUsername();        
     
-    
-    // TODO:
-    /*
-    User mappings:
-    public User getUserMapping(PluginContext pc, String externalUsername)
-    
-     
-    
-     
-     */
+    public User getUserMapping(String externalUsername, String pluginURI);       
     
 }

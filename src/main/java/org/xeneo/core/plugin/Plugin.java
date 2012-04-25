@@ -10,17 +10,13 @@ import java.util.Properties;
  *
  * @author Stefan Huber
  */
-public interface Plugin extends Runnable {
+public interface Plugin {   
     
-    public static String CONFIG_URI = "uri";
-    public static String CONFIG_FILENAME = "filename";
-    public static String CONFIG_CLASSNAME = "classname";
-    public static String CONFIG_TITLE = "title";
-    public static String CONFIG_DESCRIPTION = "description";
+    public void setID(int id);
+    public int getID();
     
-    public int getUpdateInterval();
-    
-    public void setProperties(Properties properties);
+    public void setPluginConfiguration(PluginConfiguration pc);
+    public PluginConfiguration getPluginConfiguration();
     
     public void init();
     

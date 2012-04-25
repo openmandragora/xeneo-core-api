@@ -8,38 +8,15 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>xeneo-core-api</name>
+    <name>XENEO Core API</name>
+    <description>The XENEO Core API specifies interfaces for XENEO</description>
     <url>http://www.xeneo.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.10</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.16</version>        
-        </dependency>
-        <dependency>
-            <groupId>org.xeustechnologies</groupId>
-            <artifactId>jcl-core</artifactId>
-            <version>2.3</version>
-            <type>jar</type>
-        </dependency>
-    </dependencies>
   
-    <profiles>
-        <profile>
-            <id>bundle</id>
-            
-            <build>
+                <build>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.felix</groupId>
@@ -62,7 +39,4 @@
                     </plugin>
                 </plugins>
             </build>
-          
-        </profile>
-    </profiles>
 </project>

@@ -1,4 +1,7 @@
 catalog.xml
 nbactions.xml
 target/
+.settings/
+.project
+.classpath
 
