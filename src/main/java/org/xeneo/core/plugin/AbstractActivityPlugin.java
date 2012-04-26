@@ -4,6 +4,9 @@
  */
 package org.xeneo.core.plugin;
 
+import org.xeneo.core.security.User;
+import org.xeneo.core.activity.Activity;
+
 /**
  *
  * @author Stefan
@@ -27,6 +30,18 @@ public abstract class AbstractActivityPlugin implements ActivityPlugin  {
     
     public PluginConfiguration getPluginConfiguration() {
         return this.configuration;
+    }
+    
+    protected String getOwnerURI() {
+        return null;
+    }
+    
+    protected User getUserMapping(String sourceUserString) {
+        return null;
+    }
+    
+    protected void addActivity(Activity activity) {
+        
     }
     
     
