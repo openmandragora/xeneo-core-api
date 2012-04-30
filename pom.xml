@@ -33,7 +33,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Export-Package>org.xeneo.core.*</Export-Package>
+                        <Export-Package>*</Export-Package>
                     </instructions>
                 </configuration>
             </plugin>
