@@ -16,6 +16,15 @@ public class PluginConfiguration {
     
     private final int pluginConfigurationID;  
     private String ownerURI;
+    private String pluginURI;
+
+    public String getPluginURI() {
+        return pluginURI;
+    }
+
+    public void setPluginURI(String pluginURI) {
+        this.pluginURI = pluginURI;
+    }
     
     private Properties properties;
     private Map<String,Collection<String>> taskContext;
@@ -54,7 +63,5 @@ public class PluginConfiguration {
 
     public void setTaskContext(Map<String, Collection<String>> taskContext) {
         this.taskContext = taskContext;
-    }
-    
-        
+    }       
 }

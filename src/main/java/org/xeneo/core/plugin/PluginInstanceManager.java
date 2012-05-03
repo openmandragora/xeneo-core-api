@@ -12,9 +12,9 @@ public interface PluginInstanceManager {
     
     public void removePluginInstance(String pluginURI, String ownerURI);
     
-    public void addPluginConfiguration(String pluginURI, String ownerURI, PluginConfiguration pc);
+    public void addPluginConfiguration(PluginConfiguration pc);
     
-    public void removePluginConfiguration(String pluginURI, String ownerURI, int configuratinId);    
+    public void removePluginConfiguration(int configuratinId);    
     
     public List<PluginConfiguration> listPluginConfigurations(String pluginURI, String ownerURI);
 }
