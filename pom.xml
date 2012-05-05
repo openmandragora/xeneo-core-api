@@ -9,8 +9,52 @@
     <packaging>jar</packaging>
 
     <name>XENEO Core API</name>
-    <description>The XENEO Core API specifies interfaces for XENEO</description>
-    <url>http://www.xeneo.org</url>
+    <description>The XENEO Core API specifies interfaces for the XENEO system.</description>
+    <url>http://www.xeneo.org/documentation/xeneo-core-api</url>
+    <inceptionYear>2012</inceptionYear>
+    
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+    
+    <developers>
+        <developer>
+            <id>stefan</id>
+            <name>Stefan Huber</name>
+            <email>stefan.huber@xeneo.org</email>
+            <timezone>+2</timezone>
+            <organization>XENEO</organization>
+            <organizationUrl>http://xeneo.org</organizationUrl>
+            <roles>
+                <role>Architect</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
+    
+    <organization>
+        <name>XENEO</name>
+        <url>http://xeneo.org</url>
+    </organization>
+    
+    <mailingLists>
+        <mailingList>
+            <name>XENEO Developer List</name>
+            <post>xeneo-developer-list@googlegroups.com</post>
+            <archive>https://groups.google.com/d/forum/xeneo-developer-list</archive>
+        </mailingList>
+    </mailingLists>
+
+    <scm>
+        <connection>scm:git:git://github.com/openmandragora/xeneo-core-api.git</connection>
+        <developerConnection>scm:git:git@github.com:openmandragora/xeneo-core-api.git</developerConnection>
+        <url>https://github.com/openmandragora/xeneo-core-api</url>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,13 +81,63 @@
                     </instructions>
                 </configuration>
             </plugin>
+            <!--plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>1.0</version>
+                <configuration>
+                    <verbose>false</verbose>
+                    <addSvnKeyWords>true</addSvnKeyWords>          
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>first</id>
+                        <goals>
+                            <goal>update-file-header</goal>
+                        </goals>
+                        <phase>process-sources</phase>
+                        <configuration>                            
+                            <roots>
+                                <root>src/main/java</root>
+                                <root>src/test</root>                               
+                            </roots>                            
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin-->
+            <plugin>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.wagon</groupId>
+                        <artifactId>wagon-ftp</artifactId>
+                        <version>2.2</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>        
+    </build>   
+    
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.8</version>
+            </plugin>
         </plugins>
-    </build>
+    </reporting>
     
     <distributionManagement>
         <snapshotRepository>
             <id>xeneo-snap</id>
             <url>http://www.wi.fh-kufstein.ac.at:40700/nexus/content/repositories/xeneo/</url>
         </snapshotRepository>
+        <site>
+            <id>xeneo-ftp</id>
+            <name>XENEO Documentation</name>
+            <url>ftp://hosting6.rasshofer.ltd.uk/documentation/${project.artifactId}</url>
+        </site>
     </distributionManagement>
 </project>
