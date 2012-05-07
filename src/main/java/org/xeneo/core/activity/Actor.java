@@ -23,6 +23,7 @@ public class Actor {
     
     private String actorURI;
     private String actorName;
+    private Object ActivityProvider;
 
     public String getActorName() {
         return actorName;
@@ -38,6 +39,14 @@ public class Actor {
 
     public void setActorURI(String actorURI) {
         this.actorURI = actorURI;
-    }   
+    }
+
+    public Object getActivityProvider() {
+        return ActivityProvider;
+    }
+
+    public void setActivityProvider(Object ActivityProvider) {
+        this.ActivityProvider = ActivityProvider;
+    }
     
 }
