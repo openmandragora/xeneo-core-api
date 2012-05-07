@@ -10,12 +10,12 @@ package org.xeneo.core.plugin;
  */
 public class PluginDescriptor {
     
-    public static String PLUGIN_URI = "Plugin-URI";    
-    public static String PLUGIN_CLASSNAME = "Plugin-Classname";
-    public static String PLUGIN_TYPE = "Plugin-Type";
+    public static final String PLUGIN_URI = "Plugin-URI";    
+    public static final String PLUGIN_CLASSNAME = "Plugin-Classname";
+    public static final String PLUGIN_TYPE = "Plugin-Type";
     
-    public static String ACTIVITY_PLUGIN_TYPE = "http://xeneo.org/plugin/type/activity-plugin";
-    public static String ACTIVITY_LISTENER_PLUGIN_TYPE = "http://xeneo.org/plugin/type/activity-listener-plugin";
+    public static final String ACTIVITY_PLUGIN_TYPE = "http://xeneo.org/plugin/type/activity-plugin";
+    public static final String ACTIVITY_LISTENER_PLUGIN_TYPE = "http://xeneo.org/plugin/type/activity-listener-plugin";
     
     private String pluginURI;
     private String pluginClass;
