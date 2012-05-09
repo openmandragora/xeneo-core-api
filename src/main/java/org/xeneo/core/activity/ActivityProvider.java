@@ -17,37 +17,27 @@ package org.xeneo.core.activity;
 
 /**
  *
- * @author Stefan Huber
+ * @author Markus Meingassner
  */
-public class Actor {
-    
-    private String actorURI;
-    private String actorName;
-    private String activityProviderURI; //or ActivityProvider activityprovider
-    private String userURI; // or User user
+public class ActivityProvider {
+    private String activityProviderType;
+    private String activityProviderName;
+    private String activityProviderURI;
 
-    public String getUserURI() {
-        return userURI;
+    public String getActivityProviderName() {
+        return activityProviderName;
     }
 
-    public void setUserURI(String userURI) {
-        this.userURI = userURI;
+    public void setActivityProviderName(String activityProviderName) {
+        this.activityProviderName = activityProviderName;
     }
 
-    public String getActorName() {
-        return actorName;
+    public String getActivityProviderType() {
+        return activityProviderType;
     }
 
-    public void setActorName(String actorName) {
-        this.actorName = actorName;
-    }
-
-    public String getActorURI() {
-        return actorURI;
-    }
-
-    public void setActorURI(String actorURI) {
-        this.actorURI = actorURI;
+    public void setActivityProviderType(String activityProviderType) {
+        this.activityProviderType = activityProviderType;
     }
 
     public String getActivityProviderURI() {
@@ -57,7 +47,5 @@ public class Actor {
     public void setActivityProviderURI(String activityProviderURI) {
         this.activityProviderURI = activityProviderURI;
     }
-
-
     
 }
