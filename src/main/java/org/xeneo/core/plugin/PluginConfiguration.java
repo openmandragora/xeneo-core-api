@@ -23,10 +23,11 @@ public class PluginConfiguration {
     }
 
     public void setPluginURI(String pluginURI) {
-        this.pluginURI = pluginURI;
+        this.pluginURI = pluginURI;       
     }
     
-    private Properties properties;
+    private Properties configurationProperties;
+    private Properties instanceProperties;
     private Map<String,Collection<String>> taskContext;
         
     public PluginConfiguration(int id) {
@@ -40,15 +41,23 @@ public class PluginConfiguration {
     public int getID() {
         return this.pluginConfigurationID;
     }
-       
-    public Properties getProperties() {
-        return properties;
+
+    public Properties getConfigurationProperties() {
+        return configurationProperties;
     }
 
-    public void setProperties(Properties properties) {
-        this.properties = properties;
+    public void setConfigurationProperties(Properties configurationProperties) {
+        this.configurationProperties = configurationProperties;
     }
 
+    public Properties getInstanceProperties() {
+        return instanceProperties;
+    }
+
+    public void setInstanceProperties(Properties instanceProperties) {
+        this.instanceProperties = instanceProperties;
+    }
+        
     public String getOwnerURI() {
         return ownerURI;
     }

@@ -1,7 +1,6 @@
 package org.xeneo.core.plugin;
 
 import java.util.List;
-import java.util.Properties;
 
 /**
  *
@@ -13,7 +12,7 @@ public interface PluginInstanceManager {
     
     public void removePluginInstance(String pluginURI, String ownerURI);
     
-    public void addPluginInstanceProperties(Properties properties);
+    public void addPluginInstanceProperties(PluginConfiguration pc);
     
     public void addPluginConfiguration(PluginConfiguration pc);
     

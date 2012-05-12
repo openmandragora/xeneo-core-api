@@ -5,7 +5,6 @@
 package org.xeneo.core.plugin.activity;
 
 import org.xeneo.core.plugin.Plugin;
-import org.xeneo.core.security.User;
 
 /**
  *
