@@ -4,55 +4,69 @@
  */
 package org.xeneo.core.plugin.activity;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Properties;
 import org.xeneo.core.security.User;
 import org.xeneo.core.activity.Activity;
-import org.xeneo.core.plugin.PluginConfiguration;
 import org.xeneo.core.activity.ActivityManager;
 
 /**
  *
  * @author Stefan
  */
-public abstract class AbstractActivityPlugin implements ActivityPlugin  {    
-       
+public abstract class AbstractActivityPlugin implements ActivityPlugin {
+
     private int pluginInstanceID;
-    private PluginConfiguration configuration;
-    
+    private Properties properties;
     private ActivityManager am;
-    
+
     public void setActivityManager(ActivityManager am) {
         this.am = am;
     }
-    
-    public void setID(int id) {
+
+    public void setId(int id) {
         this.pluginInstanceID = id;
     }
-    
-    public int getID() {
+
+    public int getId() {
         return this.pluginInstanceID;
     }
-    
-    public void setPluginConfiguration(PluginConfiguration pc) {
-        configuration = pc;
-    }
-    
-    public PluginConfiguration getPluginConfiguration() {
-        return this.configuration;
-    }
-    
+
     protected String getOwnerURI() {
-        return this.getPluginConfiguration().getOwnerURI();
+        return properties.getProperty("ownerURI");
     }
-    
+
+    public void setProperties(Properties props) {
+        this.properties = props;
+    }
+
+    public Properties getProperties() {
+        return this.properties;
+    }
+
     protected User getUserMapping(String sourceUserString) {
         return null;
     }
-    
+
     protected void addActivity(Activity activity) {
-        am.addActivity(activity, getPluginConfiguration().getTaskContext());
+        am.addActivity(activity);
     }
-    
+
     protected boolean isExistingActivity(String uri) {
         return am.isExistingActivity(uri);
-    }    
+    }
+
+    public void run() {
+        Iterator<Activity> it = getActivities().iterator();
+        Activity a;
+        while (it.hasNext()) {
+            a = it.next();
+            if (!isExistingActivity(a.getActivityURI())) {
+                addActivity(a);
+            }
+        }
+    }
+
+    public abstract List<Activity> getActivities();
 }
