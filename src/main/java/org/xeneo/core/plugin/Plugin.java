@@ -12,11 +12,11 @@ import java.util.Properties;
  */
 public interface Plugin {   
     
-    public void setID(int id);
-    public int getID();
+    public void setId(int id);
+    public int getId();
     
-    public void setPluginConfiguration(PluginConfiguration pc);
-    public PluginConfiguration getPluginConfiguration();
+    public void setProperties(Properties properties);
+    public Properties getProperties();
     
     public void init();
     

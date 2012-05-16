@@ -4,7 +4,10 @@
  */
 package org.xeneo.core.plugin;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -24,25 +27,24 @@ public class PluginDescriptor {
     private String pluginType;
     private String title;
     private String description;
-    private Long ID;
+    private Long Id;
     
-    private List<PluginProperty> instanceProperties;
+    private Collection<String> properties = new HashSet<String>();
     
-    public List<PluginProperty> getInstanceProperties() {
-        return instanceProperties;
+    public Collection<String> getProperties() {
+        return properties;
     }
     
-    public void addPluginInstanceProperty(PluginProperty pi) {
-        // TODO check if already exists, than update otherwise add...
-        instanceProperties.add(pi);
-    }
-
-    public Long getID() {
-        return ID;
+    public void addProperty(String name) {
+        properties.add(name);
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long Id) {
+        this.Id = Id;
     }
 
     public String getPluginType() {
