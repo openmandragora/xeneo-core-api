@@ -21,7 +21,10 @@ import java.util.List;
  *
  * @author Stefan Huber
  */
-public interface PluginConfigurator {
+public interface PluginRuntimeManager {
     
-    
+     public List<PluginConfigurator> listAvailablePlugins(String[] types);
+     
+     public void configurePlugin(PluginConfigurator pc);    
+     
 }

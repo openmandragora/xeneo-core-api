@@ -4,9 +4,9 @@
  */
 package org.xeneo.core.plugin;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.Properties;
+import java.util.ArrayList;
+import java.util.List;
+import org.xeneo.core.plugin.PluginProperty;
 
 /**
  *
@@ -14,50 +14,21 @@ import java.util.Properties;
  */
 public class PluginConfiguration {
     
-    private final int pluginConfigurationID;  
-    private String ownerURI;
     private String pluginURI;
-
-    public String getPluginURI() {
-        return pluginURI;
-    }
-
-    public void setPluginURI(String pluginURI) {
-        this.pluginURI = pluginURI;       
-    }
+    private String title;
+    private String description;
+    private String ownerURI;
     
-    private Properties configurationProperties;
-    private Properties instanceProperties;
-    private Map<String,Collection<String>> taskContext;
-        
-    public PluginConfiguration(int id) {
-        this.pluginConfigurationID = id;        
-    }
-    
-    public PluginConfiguration() {
-        this.pluginConfigurationID = -1;
-    }
-    
-    public int getID() {
-        return this.pluginConfigurationID;
+    private List<PluginProperty> pps;
+
+    public String getDescription() {
+        return description;
     }
 
-    public Properties getConfigurationProperties() {
-        return configurationProperties;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setConfigurationProperties(Properties configurationProperties) {
-        this.configurationProperties = configurationProperties;
-    }
-
-    public Properties getInstanceProperties() {
-        return instanceProperties;
-    }
-
-    public void setInstanceProperties(Properties instanceProperties) {
-        this.instanceProperties = instanceProperties;
-    }
-        
     public String getOwnerURI() {
         return ownerURI;
     }
@@ -66,11 +37,60 @@ public class PluginConfiguration {
         this.ownerURI = ownerURI;
     }
 
-    public Map<String, Collection<String>> getTaskContext() {
-        return taskContext;
+    public String getPluginURI() {
+        return pluginURI;
     }
 
-    public void setTaskContext(Map<String, Collection<String>> taskContext) {
-        this.taskContext = taskContext;
-    }       
+    public void setPluginURI(String pluginURI) {
+        this.pluginURI = pluginURI;
+    }
+
+    public List<PluginProperty> getPluginProperties() {
+        return pps;
+    }
+
+    public void setPluginProperties(List<PluginProperty> pps) {
+        this.pps = pps;
+    }
+    
+    public void addPluginProperty(PluginProperty p) {
+        if (pps == null) {
+            pps = new ArrayList<PluginProperty>();
+        }
+        
+        pps.add(p);
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + (this.pluginURI != null ? this.pluginURI.hashCode() : 0);
+        hash = 79 * hash + (this.title != null ? this.title.hashCode() : 0);
+        hash = 79 * hash + (this.description != null ? this.description.hashCode() : 0);
+        hash = 79 * hash + (this.ownerURI != null ? this.ownerURI.hashCode() : 0);
+        hash = 79 * hash + (this.pps != null ? this.pps.hashCode() : 0);
+        return hash;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof PluginConfiguration) {
+            PluginConfiguration check = (PluginConfiguration) o;
+            
+            if (check.title.equalsIgnoreCase(title) && check.pluginURI.equalsIgnoreCase(pluginURI) && check.pps.size() == pps.size())
+                return true;
+        }        
+        
+        return false;        
+    }
+    
+    
 }

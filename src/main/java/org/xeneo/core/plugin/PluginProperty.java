@@ -18,10 +18,11 @@ package org.xeneo.core.plugin;
 /**
  * @author Stefan Huber
  */
-public class PluginProperty <P> {
-    
-    private String name;    
-    private P value;
+public class PluginProperty {
+
+    private String name;
+    private String value;
+    private PluginPropertyType type;
 
     public String getName() {
         return name;
@@ -31,12 +32,42 @@ public class PluginProperty <P> {
         this.name = name;
     }
 
-    public P getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(P value) {
+    public void setValue(String value) {
         this.value = value;
-    }    
-    
+    }
+
+    public void setType(PluginPropertyType type) {
+        this.type = type;
+    }
+
+    public PluginPropertyType getType() {
+        return type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof PluginProperty) {
+            PluginProperty pp = (PluginProperty) o;
+            if (pp.getName().equalsIgnoreCase(getName()) && pp.getType().equals(getType())) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 29 * hash + (this.name != null ? this.name.hashCode() : 0);
+        hash = 29 * hash + (this.value != null ? this.value.hashCode() : 0);
+        hash = 29 * hash + (this.type != null ? this.type.hashCode() : 0);
+        return hash;
+    }
 }

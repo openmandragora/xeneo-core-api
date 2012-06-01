@@ -15,13 +15,12 @@
  */
 package org.xeneo.core.plugin;
 
-import java.util.List;
-
 /**
  *
  * @author Stefan Huber
  */
-public interface PluginConfigurator {
+public enum PluginPropertyType {
     
+    EMAIL, URI, TEXT, NUMBER    
     
 }

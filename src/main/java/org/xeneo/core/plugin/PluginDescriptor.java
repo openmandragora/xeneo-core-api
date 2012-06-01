@@ -29,14 +29,14 @@ public class PluginDescriptor {
     private String description;
     private Long Id;
     
-    private Collection<String> properties = new HashSet<String>();
+    private Collection<PluginProperty> properties = new HashSet<PluginProperty>();
     
-    public Collection<String> getProperties() {
-        return properties;
+    public PluginProperty[] getProperties() {
+        return properties.toArray(new PluginProperty[properties.size()]);
     }
     
-    public void addProperty(String name) {
-        properties.add(name);
+    public void addProperty(PluginProperty property) {
+        properties.add(property);
     }
 
     public Long getId() {
