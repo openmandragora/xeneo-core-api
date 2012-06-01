@@ -21,4 +21,5 @@ package org.xeneo.core.plugin;
  */
 public class PluginConfigurator {
     
+    
 }
