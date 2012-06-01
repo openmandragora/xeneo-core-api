@@ -6,20 +6,28 @@ package org.xeneo.core.plugin.activity;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Properties;
 import org.xeneo.core.security.User;
 import org.xeneo.core.activity.Activity;
 import org.xeneo.core.activity.ActivityManager;
+import org.xeneo.core.plugin.PluginConfiguration;
 
 /**
  *
- * @author Stefan
+ * @author Stefan Huber
  */
 public abstract class AbstractActivityPlugin implements ActivityPlugin {
 
     private int pluginInstanceID;
-    private Properties properties;
+    private PluginConfiguration pc;
     private ActivityManager am;
+
+    public PluginConfiguration getPluginConfiguration() {
+        return pc;
+    }
+
+    public void setPluginConfiguration(PluginConfiguration pc) {
+        this.pc = pc;
+    }    
 
     public void setActivityManager(ActivityManager am) {
         this.am = am;
@@ -33,16 +41,8 @@ public abstract class AbstractActivityPlugin implements ActivityPlugin {
         return this.pluginInstanceID;
     }
 
-    protected String getOwnerURI() {
-        return properties.getProperty("ownerURI");
-    }
-
-    public void setProperties(Properties props) {
-        this.properties = props;
-    }
-
-    public Properties getProperties() {
-        return this.properties;
+    public String getOwnerURI() {
+        return pc.getOwnerURI();
     }
 
     protected User getUserMapping(String sourceUserString) {

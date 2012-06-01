@@ -23,17 +23,4 @@ public interface PluginManager {
     
     public PluginDescriptor getPluginDescriptor(String pluginURI);
     
-    /*
-    public void startActivityPluginInstance(int id);
-    
-    public void stopActivityPluginInstance(int id);
-    
-    public void createActivityPluginInstance(PluginConfiguration configuration);
-    
-    public void updateActivityPluginInstance(PluginConfiguration configuration);
-    
-    public void removeActivityPluginInstance(int id);
-    
-    public List<PluginConfiguration> listActivityPluginInstances(String[] pluginURIs);
-    */
 }

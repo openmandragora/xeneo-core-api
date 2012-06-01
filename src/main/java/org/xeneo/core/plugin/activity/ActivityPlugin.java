@@ -14,4 +14,5 @@ import org.xeneo.core.plugin.Plugin;
 public interface ActivityPlugin extends Plugin, Runnable {   
     
     public void setActivityManager(ActivityManager am);
+    
 }

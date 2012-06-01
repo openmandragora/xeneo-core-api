@@ -1,25 +1,23 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.xeneo.core.plugin;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.xeneo.core.plugin.PluginProperty;
+import java.util.Collection;
+import java.util.HashSet;
 
 /**
  *
  * @author Stefan Huber
  */
-public class PluginConfiguration {
-    
+public class PluginConfiguration implements PluginConfigurator, PluginDescriptor {
+
     private String pluginURI;
     private String title;
     private String description;
     private String ownerURI;
+    private PluginType pluginType;
+    private Long id;
+    private String pluginClass;
     
-    private List<PluginProperty> pps;
+    private Collection<PluginProperty> properties = new HashSet<PluginProperty>();
 
     public String getDescription() {
         return description;
@@ -45,22 +43,6 @@ public class PluginConfiguration {
         this.pluginURI = pluginURI;
     }
 
-    public List<PluginProperty> getPluginProperties() {
-        return pps;
-    }
-
-    public void setPluginProperties(List<PluginProperty> pps) {
-        this.pps = pps;
-    }
-    
-    public void addPluginProperty(PluginProperty p) {
-        if (pps == null) {
-            pps = new ArrayList<PluginProperty>();
-        }
-        
-        pps.add(p);
-    }
-
     public String getTitle() {
         return title;
     }
@@ -76,21 +58,52 @@ public class PluginConfiguration {
         hash = 79 * hash + (this.title != null ? this.title.hashCode() : 0);
         hash = 79 * hash + (this.description != null ? this.description.hashCode() : 0);
         hash = 79 * hash + (this.ownerURI != null ? this.ownerURI.hashCode() : 0);
-        hash = 79 * hash + (this.pps != null ? this.pps.hashCode() : 0);
+        hash = 79 * hash + (this.properties != null ? this.properties.hashCode() : 0);
         return hash;
     }
-    
+
     @Override
     public boolean equals(Object o) {
         if (o instanceof PluginConfiguration) {
             PluginConfiguration check = (PluginConfiguration) o;
-            
-            if (check.title.equalsIgnoreCase(title) && check.pluginURI.equalsIgnoreCase(pluginURI) && check.pps.size() == pps.size())
+
+            if (check.title.equalsIgnoreCase(title) && check.pluginURI.equalsIgnoreCase(pluginURI) && check.properties.size() == properties.size()) {
                 return true;
-        }        
-        
-        return false;        
+            }
+        }
+
+        return false;
     }
-    
-    
+
+    public void addProperty(PluginProperty pp) {
+        properties.add(pp);
+    }
+
+    public PluginProperty[] getProperties() {
+        return properties.toArray(new PluginProperty[properties.size()]);
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long Id) {
+        this.id = Id;
+    }
+
+    public String getPluginClass() {
+        return this.pluginClass;
+    }
+
+    public void setPluginClass(String pluginClass) {
+        this.pluginClass = pluginClass;
+    }
+
+    public void setPluginType(PluginType pluginType) {
+        this.pluginType = pluginType;
+    }
+
+    public PluginType getPluginType() {
+        return this.pluginType;
+    }
 }

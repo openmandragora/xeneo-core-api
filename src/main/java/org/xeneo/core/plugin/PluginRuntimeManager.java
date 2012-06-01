@@ -15,16 +15,10 @@
  */
 package org.xeneo.core.plugin;
 
-import java.util.List;
-
 /**
  *
  * @author Stefan Huber
  */
-public interface PluginRuntimeManager {
-    
-     public List<PluginConfigurator> listAvailablePlugins(String[] types);
-     
-     public void configurePlugin(PluginConfigurator pc);    
+public interface PluginRuntimeManager {         
      
 }

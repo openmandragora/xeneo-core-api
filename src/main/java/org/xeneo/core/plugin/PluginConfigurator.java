@@ -15,13 +15,14 @@
  */
 package org.xeneo.core.plugin;
 
-import java.util.List;
-
 /**
  *
  * @author Stefan Huber
  */
-public interface PluginConfigurator {
-    
+public interface PluginConfigurator extends PluginDescriptor {    
+
+    public String getOwnerURI();
+
+    public void setOwnerURI(String ownerURI);
     
 }
