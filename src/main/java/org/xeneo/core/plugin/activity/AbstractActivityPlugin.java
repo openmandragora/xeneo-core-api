@@ -45,10 +45,6 @@ public abstract class AbstractActivityPlugin implements ActivityPlugin {
         return this.properties;
     }
 
-    protected User getUserMapping(String sourceUserString) {
-        return null;
-    }
-
     protected void addActivity(Activity activity) {
         am.addActivity(activity);
     }
