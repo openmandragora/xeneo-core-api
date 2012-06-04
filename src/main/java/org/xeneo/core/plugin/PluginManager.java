@@ -19,8 +19,8 @@ public interface PluginManager {
     
     public void deactivatePlugin(String pluginURI);
     
-    public List<PluginDescriptor> listAvailablePlugins(String[] types);
+    // public List<PluginDescriptor> listAvailablePlugins(String[] types);
     
-    public PluginDescriptor getPluginDescriptor(String pluginURI);
+    // public PluginDescriptor getPluginDescriptor(String pluginURI);
     
 }

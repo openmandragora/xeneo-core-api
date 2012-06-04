@@ -12,9 +12,9 @@ import org.xeneo.core.plugin.PluginConfiguration;
  */
 public interface ActivityPluginManager {
     
-    public void startActivityPlugin(String pluginURI, String ownerURI, PluginConfiguration pc);
+    public void startActivityPlugin(PluginConfiguration pc);
     
     public void stopActivityPlugin(String pluginURI, String ownerURI);
     
-    public void removeActivityPluginConfiguration();
+    public void removeActivityPluginConfiguration(String pluginURI, String ownerURI);
 }
