@@ -24,15 +24,6 @@ public class Actor {
     private String actorURI;
     private String actorName;
     private String activityProviderURI; //or ActivityProvider activityprovider
-    private String userURI; // or User user
-
-    public String getUserURI() {
-        return userURI;
-    }
-
-    public void setUserURI(String userURI) {
-        this.userURI = userURI;
-    }
 
     public String getActorName() {
         return actorName;
