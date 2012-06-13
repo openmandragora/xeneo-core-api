@@ -1,5 +1,6 @@
 package org.xeneo.core.plugin;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -7,15 +8,19 @@ import java.util.HashSet;
  *
  * @author Stefan Huber
  */
-public class PluginConfiguration implements PluginConfigurator, PluginDescriptor {
+public class PluginConfiguration {
 
     private String pluginURI;
     private String title;
     private String description;
     private String ownerURI;
     private PluginType pluginType;
-    private Long id;
+    private int id;
     private String pluginClass;
+    
+    public PluginConfiguration() {
+        id = -1;
+    }
     
     private Collection<PluginProperty> properties = new HashSet<PluginProperty>();
 
@@ -52,6 +57,11 @@ public class PluginConfiguration implements PluginConfigurator, PluginDescriptor
     }
 
     @Override
+    public String toString() {
+        return "PluginConfiguration{" + "pluginURI=" + pluginURI + ", title=" + title + ", description=" + description + ", ownerURI=" + ownerURI + ", pluginType=" + pluginType + ", id=" + id + ", pluginClass=" + pluginClass + ", properties=" + properties + '}';
+    }
+
+    @Override
     public int hashCode() {
         int hash = 7;
         hash = 79 * hash + (this.pluginURI != null ? this.pluginURI.hashCode() : 0);
@@ -78,16 +88,24 @@ public class PluginConfiguration implements PluginConfigurator, PluginDescriptor
     public void addProperty(PluginProperty pp) {
         properties.add(pp);
     }
+    
+    public void addProperties(Collection<PluginProperty> pcs) {
+        properties.addAll(pcs);
+    }
+    
+    public void addProperties(PluginProperty[] pps) {
+        properties.addAll(Arrays.asList(pps));
+    }
 
     public PluginProperty[] getProperties() {
         return properties.toArray(new PluginProperty[properties.size()]);
     }
 
-    public Long getId() {
+    public int getId() {
         return this.id;
     }
 
-    public void setId(Long Id) {
+    public void setId(int Id) {
         this.id = Id;
     }
 

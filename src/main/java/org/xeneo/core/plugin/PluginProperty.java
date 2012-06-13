@@ -49,6 +49,11 @@ public class PluginProperty {
     }
 
     @Override
+    public String toString() {
+        return "PluginProperty{" + "name=" + name + ", value=" + value + ", type=" + type.name() + '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (o instanceof PluginProperty) {
             PluginProperty pp = (PluginProperty) o;

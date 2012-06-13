@@ -12,7 +12,7 @@ import org.xeneo.core.XeneoException;
  */
 public class PluginException extends XeneoException {
 
-    PluginException(String message) {
+    public PluginException(String message) {
         super(message);
     }
     

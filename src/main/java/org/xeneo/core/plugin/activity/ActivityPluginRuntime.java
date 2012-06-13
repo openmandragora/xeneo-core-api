@@ -10,11 +10,8 @@ import org.xeneo.core.plugin.PluginConfiguration;
  *
  * @author Stefan Huber
  */
-public interface ActivityPluginManager {
+public interface ActivityPluginRuntime {
     
     public void startActivityPlugin(PluginConfiguration pc);
     
-    public void stopActivityPlugin(String pluginURI, String ownerURI);
-    
-    public void removeActivityPluginConfiguration(String pluginURI, String ownerURI);
 }
