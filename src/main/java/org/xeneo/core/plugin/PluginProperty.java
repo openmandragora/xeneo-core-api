@@ -43,6 +43,10 @@ public class PluginProperty {
     public void setType(PluginPropertyType type) {
         this.type = type;
     }
+    
+    public void setType(String propertyType) {
+        type = PluginPropertyType.valueOf(propertyType);
+    }
 
     public PluginPropertyType getType() {
         return type;

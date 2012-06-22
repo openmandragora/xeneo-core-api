@@ -17,11 +17,10 @@ public class PluginConfiguration {
     private PluginType pluginType;
     private int id;
     private String pluginClass;
-    
+
     public PluginConfiguration() {
         id = -1;
     }
-    
     private Collection<PluginProperty> properties = new HashSet<PluginProperty>();
 
     public String getDescription() {
@@ -88,13 +87,21 @@ public class PluginConfiguration {
     public void addProperty(PluginProperty pp) {
         properties.add(pp);
     }
-    
+
     public void addProperties(Collection<PluginProperty> pcs) {
         properties.addAll(pcs);
     }
-    
+
     public void addProperties(PluginProperty[] pps) {
         properties.addAll(Arrays.asList(pps));
+    }
+
+    public void setProperties(Collection<PluginProperty> pcs) {
+        this.properties = pcs;
+    }
+
+    public void setProperties(PluginProperty[] pps) {
+        this.properties = Arrays.asList(pps);
     }
 
     public PluginProperty[] getProperties() {
@@ -119,6 +126,10 @@ public class PluginConfiguration {
 
     public void setPluginType(PluginType pluginType) {
         this.pluginType = pluginType;
+    }
+
+    public void setPluginType(String pluginType) {
+        this.pluginType = PluginType.valueOf(pluginType);
     }
 
     public PluginType getPluginType() {
