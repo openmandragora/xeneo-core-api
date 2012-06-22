@@ -6,10 +6,10 @@ package org.xeneo.core.plugin.activity;
 
 import java.util.Iterator;
 import java.util.List;
-import org.xeneo.core.security.User;
 import org.xeneo.core.activity.Activity;
 import org.xeneo.core.activity.ActivityManager;
 import org.xeneo.core.plugin.PluginConfiguration;
+import org.xeneo.core.plugin.PluginProperty;
 
 /**
  *
@@ -23,6 +23,10 @@ public abstract class AbstractActivityPlugin implements ActivityPlugin {
 
     public PluginConfiguration getPluginConfiguration() {
         return pc;
+    }
+    
+    public PluginProperty[] getPluginProperties() {
+        return getPluginConfiguration().getProperties();
     }
 
     public void setPluginConfiguration(PluginConfiguration pc) {
