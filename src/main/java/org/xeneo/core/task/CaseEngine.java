@@ -4,13 +4,15 @@
  */
 package org.xeneo.core.task;
 
+import org.xeneo.core.XeneoException;
+
 /**
  *
  * @author Stefan Huber
  */
 public interface CaseEngine {
     
-    public Case getCaseByURI(String URI);
+    public Case getCaseByURI(String URI) throws XeneoException;
    
     public Case createCase(String caseTypeURI, String title);
     
