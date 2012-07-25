@@ -14,94 +14,184 @@ import java.util.Date;
  * @author Stefan Huber
  */
 public class Activity {
+    
+    public static class Builder {
+        private String activityURI;
+        private Date creationDate;
+        private Actor actor;
+        private String actionURI;
+        private Object object;
+        private Object target;
+        private String summary;
+        private String description;
+        private ActivityProvider activityProvider;
+        
+        public Builder() {}
+
+        public Builder setActionURI(String actionURI) {
+            this.actionURI = actionURI; return this;
+        }
+
+        public Builder setActivityProvider(String activityProviderURI, String activityProviderName, String activityProviderType) {
+            ActivityProvider ap = new ActivityProvider(activityProviderURI,activityProviderName,activityProviderType);            
+            this.activityProvider = ap; return this;
+        }
+        
+        public Builder setActivityProvider(ActivityProvider ap) {                        
+            this.activityProvider = ap; return this;
+        }
+
+        public Builder setActivityURI(String activityURI) {
+            this.activityURI = activityURI; return this;
+        }
+
+        public Builder setActor(String actorURI, String actorName, String activityProviderURI) {
+            Actor a = new Actor(actorURI, actorName, activityProviderURI);
+            this.actor = a; return this;
+        }
+        
+        public Builder setActor(Actor a) {            
+            this.actor = a; return this;
+        }
+
+        public Builder setCreationDate(Date creationDate) {
+            this.creationDate = creationDate; return this;
+        }
+
+        public Builder setDescription(String description) {
+            this.description = description; return this;
+        }
+
+        public Builder setObject(String objectURI, String objectName, String objectTypeURI) {
+            Object o = new Object(objectURI, objectName, objectTypeURI);
+            this.object = o; return this;
+        }
+        
+        public Builder setObject(Object o) {            
+            this.object = o; return this;
+        }
+
+        public Builder setSummary(String summary) {
+            this.summary = summary; return this;
+        }
+
+        public Builder setTarget(String targetURI, String targetName, String targetTypeURI) {
+            Object o = new Object(targetURI, targetName, targetTypeURI);
+            this.target = o; return this;
+        }
+        
+        public Builder setTarget(Object o) {            
+            this.target = o; return this;
+        }
+        
+        public Activity build() {        
+            
+            return new Activity(this);
+        }       
+    }
+    
+    private Activity (Builder builder) {
+        
+        // mandatory activity parts
+        assert builder.actionURI != null:"An Action URI has to be supplied!";
+        actionURI = builder.actionURI;
+        
+        assert builder.activityURI != null:"An Activity URI has to be supplied!";
+        activityURI = builder.activityURI;
+        
+        assert builder.creationDate != null:"A creation date of the activity has to be supplied!";
+        creationDate = builder.creationDate;
+        
+        assert builder.actor != null:"An actor has to be supplied!";
+        actor = builder.actor;
+        
+        assert builder.object != null:"An activity object has to be supplied!";
+        object = builder.object;
+        
+        assert builder.activityProvider != null:"An activity provider has to be supplied!";
+        activityProvider = builder.activityProvider;
+        
+        // optional activity parts
+        target = builder.target;
+        summary = builder.summary;
+        description = builder.description;        
+    }
 
     /*
      * This URI represents the unique identifier of this Activity.
      */
-    private String activityURI;
-    private Date creationDate;
-    private Actor actor;
-    private String actionURI;
-    private Object object;
-    private Object target;
-    private String summary;
-    private String description;
-    private ActivityProvider activityProvider;
+    private final String activityURI;
+    private final Date creationDate;
+    private final Actor actor;
+    private final String actionURI;
+    private final Object object;
+    private final Object target;
+    private final String summary;
+    private final String description;
+    private final ActivityProvider activityProvider;
 
     public String getActivityURI() {
         return activityURI;
-    }
-
-    public void setActivityURI(String activityURI) {
-        this.activityURI = activityURI;
     }
 
     public Date getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
     public Actor getActor() {
         return actor;
-    }
-
-    public void setActor(Actor actor) {
-        this.actor = actor;
-    }
+    }    
 
     public String getActionURI() {
         return actionURI;
     }
-
-    public void setActionURI(String actionURI) {
-        this.actionURI = actionURI;
-    }
-
+    
     public Object getObject() {
         return object;
     }
-
-    public void setObject(Object object) {
-        this.object = object;
-    }
-
+    
     public Object getTarget() {
         return target;
     }
-
-    public void setTarget(Object target) {
-        this.target = target;
-    }
-
+   
     public String getSummary() {
         return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
     }
 
     public String getDescription() {
         return description;
     }
-
-    public void setDescription(String desc) {
-        this.description = desc;
-    }
-
-    /*
-     * TODO: add activity provider functionality. Activity Type might be
-     * necessary, to specify the display settings... (Each type has a different
-     * display)
-     */
+    
     public ActivityProvider getActivityProvider() {
         return activityProvider;
     }
-
-    public void setActivityProvider(ActivityProvider activityProvider) {
-        this.activityProvider = activityProvider;
+    
+    @Override
+    public String toString() {
+        return "Activity with URI: " + activityURI;
     }
+    /*
+     * Mainly only the activityURI is telling equality.
+     */
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (o instanceof Activity) {
+            Activity other = (Activity) o;
+            return other.activityURI.equals(activityURI);
+        }        
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + (this.activityURI != null ? this.activityURI.hashCode() : 0);
+        hash = 23 * hash + (this.creationDate != null ? this.creationDate.hashCode() : 0);
+        hash = 23 * hash + (this.actor != null ? this.actor.hashCode() : 0);
+        hash = 23 * hash + (this.actionURI != null ? this.actionURI.hashCode() : 0);
+        hash = 23 * hash + (this.object != null ? this.object.hashCode() : 0);
+        hash = 23 * hash + (this.target != null ? this.target.hashCode() : 0);
+        return hash;
+    }
+    
 }

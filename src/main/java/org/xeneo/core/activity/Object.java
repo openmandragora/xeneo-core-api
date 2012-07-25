@@ -5,7 +5,15 @@ public class Object {
 	private String objectURI;
 	private String objectTypeURI;
 	private String objectName;
-		
+
+        public Object(String objectURI, String objectName, String objectTypeURI) {
+            this.objectURI = objectURI;
+            this.objectTypeURI = objectTypeURI;
+            this.objectName = objectName;
+        }       
+        
+        public Object() {}
+
 	public String getObjectURI() {
 		return objectURI;
 	}

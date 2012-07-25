@@ -3,6 +3,7 @@ package org.xeneo.core.plugin;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import org.xeneo.core.security.AuthType;
 
 /**
  *
@@ -17,7 +18,25 @@ public class PluginConfiguration {
     private PluginType pluginType;
     private int id;
     private String pluginClass;
+    private String securityIdentifier = null;
+    private AuthType authType = null;
 
+    public AuthType getAuthType() {
+        return authType;
+    }
+
+    public void setAuthType(AuthType authType) {
+        this.authType = authType;
+    }
+
+    public String getSecurityIdentifier() {
+        return securityIdentifier;
+    }
+
+    public void setSecurityIdentifier(String securityIdentifier) {
+        this.securityIdentifier = securityIdentifier;
+    }
+    
     public PluginConfiguration() {
         id = -1;
     }
@@ -134,5 +153,9 @@ public class PluginConfiguration {
 
     public PluginType getPluginType() {
         return this.pluginType;
+    }
+    
+    public boolean needsAuthentication() {
+        return this.authType != null;
     }
 }

@@ -14,6 +14,5 @@ public interface CaseType {
     public String getTitle();
     public String getDescription();
     
-    public void updateTitle(String title);
-    public void updateDescription(String description);
+    public void update(String title, String description);
 }

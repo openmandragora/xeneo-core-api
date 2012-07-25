@@ -24,6 +24,14 @@ public class ActivityProvider {
     private String activityProviderName;
     private String activityProviderURI;
 
+    public ActivityProvider(String activityProviderURI, String activityProviderName, String activityProviderType) {
+        this.activityProviderType = activityProviderType;
+        this.activityProviderName = activityProviderName;
+        this.activityProviderURI = activityProviderURI;
+    }   
+    
+    public ActivityProvider() {}
+
     public String getActivityProviderName() {
         return activityProviderName;
     }

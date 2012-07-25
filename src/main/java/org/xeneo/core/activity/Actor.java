@@ -25,6 +25,14 @@ public class Actor {
     private String actorName;
     private String activityProviderURI; //or ActivityProvider activityprovider
 
+    public Actor(String actorURI, String actorName, String activityProviderURI) {
+        this.actorURI = actorURI;
+        this.actorName = actorName;
+        this.activityProviderURI = activityProviderURI;
+    }   
+    
+    public Actor() {}
+
     public String getActorName() {
         return actorName;
     }
