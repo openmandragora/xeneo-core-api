@@ -21,7 +21,7 @@ package org.xeneo.core.plugin;
 public class PluginProperty {
 
     private String name;
-    private String value;
+    private String value;    
     private PluginPropertyType type;
 
     public String getName() {

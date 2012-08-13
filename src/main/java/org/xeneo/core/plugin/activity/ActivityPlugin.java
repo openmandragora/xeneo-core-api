@@ -4,7 +4,7 @@
  */
 package org.xeneo.core.plugin.activity;
 
-import org.xeneo.core.activity.ActivityManager;
+import org.xeneo.core.activity.ActivityRepository;
 import org.xeneo.core.plugin.Plugin;
 
 /**
@@ -13,6 +13,6 @@ import org.xeneo.core.plugin.Plugin;
  */
 public interface ActivityPlugin extends Plugin, Runnable {   
     
-    public void setActivityManager(ActivityManager am);
+    public void setActivityRepository(ActivityRepository am);
     
 }

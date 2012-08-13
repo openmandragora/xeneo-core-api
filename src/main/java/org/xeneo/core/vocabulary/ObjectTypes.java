@@ -13,28 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.xeneo.core.activity;
-
-import java.util.List;
+package org.xeneo.core.vocabulary;
 
 /**
  *
  * @author Stefan Huber
  */
-public interface ActivityRepository {
+public enum ObjectTypes {
+    
+    bookmark("http://www.w3.org/2002/01/bookmark#Bookmark"),
+    tag("http://rdfs.org/sioc/types#Tag");
+    
+    public final String URI;
+    
+    ObjectTypes (String uri) {
+        URI = uri;
+    }
 
-    public void addActivity(Activity activity);
-    
-    public void addObject(Object object);
-    
-    public void addActor(Actor actor);
-    
-    public void addActivityProvider(ActivityProvider provider);
-
-    public boolean isExistingActivity(String activityURI);
-    
-    public List<Activity> getActivities(String userURI, int lowerLimit, int upperLimit);    
-
-    public List<Activity> getActivities(Filter filter);
     
 }

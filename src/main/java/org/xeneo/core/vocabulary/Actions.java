@@ -13,28 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.xeneo.core.activity;
-
-import java.util.List;
+package org.xeneo.core.vocabulary;
 
 /**
  *
  * @author Stefan Huber
  */
-public interface ActivityRepository {
-
-    public void addActivity(Activity activity);
+public enum Actions {
     
-    public void addObject(Object object);
+    add("http://activitystrea.ms/schema/1.0/add"),
+    remove("http://activitystrea.ms/schema/1.0/remove"),
+    update("http://activitystrea.ms/schema/1.0/update"),
+    save("http://activitystrea.ms/schema/1.0/save"),
+    delete("http://activitystrea.ms/schema/1.0/delete");
     
-    public void addActor(Actor actor);
+    public final String URI;
     
-    public void addActivityProvider(ActivityProvider provider);
-
-    public boolean isExistingActivity(String activityURI);
-    
-    public List<Activity> getActivities(String userURI, int lowerLimit, int upperLimit);    
-
-    public List<Activity> getActivities(Filter filter);
+    Actions(String uri) {
+        URI = uri;
+    }        
     
 }

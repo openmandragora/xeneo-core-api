@@ -7,7 +7,7 @@ package org.xeneo.core.plugin.activity;
 import java.util.Iterator;
 import java.util.List;
 import org.xeneo.core.activity.Activity;
-import org.xeneo.core.activity.ActivityManager;
+import org.xeneo.core.activity.ActivityRepository;
 import org.xeneo.core.plugin.PluginConfiguration;
 import org.xeneo.core.plugin.PluginProperty;
 
@@ -19,7 +19,7 @@ public abstract class AbstractActivityPlugin implements ActivityPlugin {
 
     private int pluginInstanceID;
     private PluginConfiguration pc;
-    private ActivityManager am;
+    private ActivityRepository am;
 
     public PluginConfiguration getPluginConfiguration() {
         return pc;
@@ -33,7 +33,7 @@ public abstract class AbstractActivityPlugin implements ActivityPlugin {
         this.pc = pc;
     }    
 
-    public void setActivityManager(ActivityManager am) {
+    public void setActivityRepository(ActivityRepository am) {
         this.am = am;
     }
 

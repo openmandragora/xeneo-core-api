@@ -4,6 +4,7 @@
  */
 package org.xeneo.core.task;
 
+import java.util.Collection;
 import org.xeneo.core.XeneoException;
 
 /**
@@ -13,10 +14,14 @@ import org.xeneo.core.XeneoException;
 public interface CaseManager {
     
     public Case getCaseByURI(String URI) throws XeneoException;
+    
+    public Collection<CaseType> getCaseTypes();
         
     public Case createCase(String caseTypeURI, String title, String description);
     
     public Task createTask(String title, String description);
 
     public CaseType createCaseType(String title, String description);
+    
+    public CaseType updateCaseType(CaseType caseType);
  }

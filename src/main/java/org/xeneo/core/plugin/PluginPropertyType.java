@@ -21,6 +21,12 @@ package org.xeneo.core.plugin;
  */
 public enum PluginPropertyType {
     
-    EMAIL, URI, TEXT, NUMBER    
+    EMAIL,
+    URI,
+    TEXT,
+    NUMBER,
+    SEC_HTTP_USERNAME,
+    SEC_HTTP_PASSWORD,
+    FIXED_HIDDEN
     
 }
